@@ -1,5 +1,5 @@
 body {
-    background-color: #66AAFF;
+    background-image: url("/resources/shared/image/brickwall.png");
 }
 
 h3 {
@@ -12,10 +12,12 @@ h3 {
 }
 
 .left-panel {
-    background-color: #99CCFF;
+    background-image: url("/resources/shared/image/tex2res5.png");
     padding: 20px;
 }
 
 .right-panel {
-    background-color: #33CCFF;
+    border-left: 1px solid #CFCFCF;
+    border-right: 1px solid #CFCFCF;
+    border-bottom: 1px solid #CFCFCF;
 }

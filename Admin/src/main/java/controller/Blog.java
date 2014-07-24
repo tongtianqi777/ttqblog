@@ -36,15 +36,33 @@ public class Blog {
     }
 
     @RequestMapping(value = "/submit", method = RequestMethod.POST)
-    public String submitBlog (@RequestParam("editor1") String body, ModelMap model) {
+    public String submitBlog (@RequestParam("title") String title, @RequestParam("editor1") String body, ModelMap model) {
         BlogsBean blog = new BlogsBean();
-        blog.setTitle("test title");
+        blog.setTitle(title);
         blog.setTime(new Timestamp(new Date().getTime()));
         blog.setBody(body);
         dao.save(blog);
 
         return "create_article";
     }
+
+//    @RequestMapping(value = "/submit", method = RequestMethod.POST)
+//    public String submitBlog (HttpServletRequest request, ModelMap model) {
+//        try {
+//            request.setCharacterEncoding("UTF-8");
+//        } catch (UnsupportedEncodingException e) {
+//            e.printStackTrace();
+//            return "";
+//        }
+//
+//        BlogsBean blog = new BlogsBean();
+//        blog.setTitle(request.getParameter("title"));
+//        blog.setTime(new Timestamp(new Date().getTime()));
+//        blog.setBody(request.getParameter("editor1"));
+//        dao.save(blog);
+//
+//        return "create_article";
+//    }
 
     @RequestMapping(value = "/imageupload", method = RequestMethod.POST)
     public String uploadImage(@RequestParam("upload") MultipartFile file, HttpServletRequest request, ModelMap model) {

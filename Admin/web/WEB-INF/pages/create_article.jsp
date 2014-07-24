@@ -8,23 +8,24 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Create an article</title>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/ckeditor/ckeditor.js"></script>
     <%@ include file="/WEB-INF/templates/shared_resources.jsp" %>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/ckeditor/ckeditor.js" charset="utf-8"></script>
 </head>
 <body>
 <form action="${pageContext.request.contextPath}/blog/submit" method="POST">
     <label>Title</label>
     <input type="text" name="title">
     <textarea id="editor1" name="editor1"></textarea>
-    <button type="submit">Submit</button>
+    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
 </form>
 <script type="text/javascript">
     CKEDITOR.replace( 'editor1',
             {
                 filebrowserImageUploadUrl : '${pageContext.request.contextPath}/blog/imageupload',
-                width: '100%',
-                height:'100%'
+                width: '80%',
+                height:'80%'
             });
 </script>
 </body>

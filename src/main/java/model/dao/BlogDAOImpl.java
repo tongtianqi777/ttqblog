@@ -30,7 +30,7 @@ public class BlogDAOImpl implements BlogDAO {
 
     @Override
     public List<BlogsBean> all() {
-        String hql = "From BlogsBean";
+        String hql = "From BlogsBean ORDER BY time DESC";
         Session session = HibernateUtils.createSession();
         List<BlogsBean> list = null;
 
