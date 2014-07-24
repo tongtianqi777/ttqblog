@@ -2046,6 +2046,31 @@
       <column name="CURRENT_CONNECTIONS" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <column name="TOTAL_CONNECTIONS" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
     </table>
+    <table name="blogs" schema="" catalog="ttq" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="title" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <column name="time" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="body" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="blog_id" table="comments" schema="" catalog="ttq" columns="blog_id"/>
+    </table>
+    <table name="comments" schema="" catalog="ttq" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="blog_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="username" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="body" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="blog_id" columns="blog_id" ref-table="blogs" ref-schema="" ref-catalog="ttq" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_name" columns="username" ref-table="users" ref-schema="" ref-catalog="ttq" ref-columns="username" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="blog_id_idx" unique="false" columns="blog_id"/>
+      <index name="user_name_idx" unique="false" columns="username"/>
+    </table>
+    <table name="users" schema="" catalog="ttq" type="TABLE">
+      <column name="username" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="username"/>
+      <exported-key name="user_name" table="comments" schema="" catalog="ttq" columns="username"/>
+    </table>
     <procedure name="rds_collect_global_status_history" schema="" catalog="mysql" type="1"/>
     <procedure name="rds_disable_gsh_collector" schema="" catalog="mysql" type="1"/>
     <procedure name="rds_disable_gsh_rotation" schema="" catalog="mysql" type="1"/>
@@ -4159,6 +4184,24 @@
       <column name="time" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <column name="body" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
       <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="blog_id" table="comments" schema="" catalog="ttq" columns="blog_id"/>
+    </table>
+    <table name="comments" schema="" catalog="ttq" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="blog_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="username" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="body" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="blog_id" columns="blog_id" ref-table="blogs" ref-schema="" ref-catalog="ttq" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_name" columns="username" ref-table="users" ref-schema="" ref-catalog="ttq" ref-columns="username" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="blog_id_idx" unique="false" columns="blog_id"/>
+      <index name="user_name_idx" unique="false" columns="username"/>
+    </table>
+    <table name="users" schema="" catalog="ttq" type="TABLE">
+      <column name="username" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="username"/>
+      <exported-key name="user_name" table="comments" schema="" catalog="ttq" columns="username"/>
     </table>
     <procedure name="rds_collect_global_status_history" schema="" catalog="mysql" type="1"/>
     <procedure name="rds_disable_gsh_collector" schema="" catalog="mysql" type="1"/>
