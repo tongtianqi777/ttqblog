@@ -1,0 +1,28 @@
+#profile_img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+}
+
+.blog-info {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.blog-title {
+    border-left: 5px solid #0033CC;
+}
+
+.blog-time {
+    height: 42px;
+    display: table;
+}
+
+.blog-time p {
+    display: table-cell;
+    vertical-align: middle;
+    color: #989898;
+}
+h4 {
+    font-size: 20px;
+}

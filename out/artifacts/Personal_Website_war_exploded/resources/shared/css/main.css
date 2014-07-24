@@ -1,0 +1,21 @@
+body {
+    background-color: #66AAFF;
+}
+
+h3 {
+    color: #989898;
+    margin-top:20px;
+    margin-bottom: 20px;
+    line-height: 20px;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.left-panel {
+    background-color: #99CCFF;
+    padding: 20px;
+}
+
+.right-panel {
+    background-color: #33CCFF;
+}
